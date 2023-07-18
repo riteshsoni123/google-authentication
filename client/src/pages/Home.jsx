@@ -9,14 +9,14 @@ export default function Home(data) {
   const [user, setUser] = useState({
     username: data.user.username,
     location: !data.user.location ? "" : data.user.location,
-    summary: !data.user.location ? "" : data.user.location,
-    website: !data.user.location ? "" : data.user.location,
-    github: !data.user.location ? "" : data.user.location,
-    linkedin: !data.user.location ? "" : data.user.location,
-    twitter: !data.user.location ? "" : data.user.location,
-    work: !data.user.location ? "" : data.user.location,
-    education: !data.user.location ? "" : data.user.location,
-    skill: !data.user.location ? "" : data.user.location,
+    summary: !data.user.summary ? "" : data.user.summary,
+    website: !data.user.website ? "" : data.user.website,
+    github: !data.user.github ? "" : data.user.github,
+    linkedin: !data.user.linkedin ? "" : data.user.linkedin,
+    twitter: !data.user.twitter ? "" : data.user.twitter,
+    work: !data.user.work ? "" : data.user.work,
+    education: !data.user.education ? "" : data.user.education,
+    skill: !data.user.skill ? "" : data.user.skill,
   });
 
   const user_default = {
