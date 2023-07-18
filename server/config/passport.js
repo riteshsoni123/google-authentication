@@ -15,6 +15,7 @@ passport.use(
     //   callback(null, profile);
     // }
     async (accessToken, refreshToken, profile, done) => {
+      // console.log(accessToken, refreshToken);
       const id = profile.id;
       const email = profile.emails[0].value;
       const username = profile.name.givenName;

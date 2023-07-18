@@ -3,21 +3,36 @@ const express = require("express");
 const cors = require("cors");
 const passport = require("passport");
 const authRoute = require("./routes/auth");
-const cookieSession = require("cookie-session");
+const session = require("express-session");
+// const cookieSession = require("cookie-session");
 // const passportStrategy = require("./passport");
 const connectDB = require("./config/db");
 const passportStrategy = require("./config/passport");
+const mongoose = require("mongoose");
+const MongoStore = require("connect-mongo");
 
 connectDB();
 
 const app = express();
 app.use(express.json());
 
+// app.use(
+//   cookieSession({
+//     name: "session",
+//     keys: ["cyberwolve"],
+//     maxAge: 24 * 60 * 60 * 100,
+//   })
+// );
+
 app.use(
-  cookieSession({
-    name: "session",
-    keys: ["cyberwolve"],
-    maxAge: 24 * 60 * 60 * 100,
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+      ttl: 24 * 60 * 60 * 100,
+    }),
   })
 );
 

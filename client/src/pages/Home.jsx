@@ -6,6 +6,8 @@ export default function Home(data) {
   const [key, setKey] = useState("");
   const [editValue, setEditValue] = useState("");
 
+  // console.log(data.user);
+
   const [user, setUser] = useState({
     username: data.user.username,
     location: !data.user.location ? "" : data.user.location,
